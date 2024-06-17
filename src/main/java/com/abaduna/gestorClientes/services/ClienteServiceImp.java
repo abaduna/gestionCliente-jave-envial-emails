@@ -5,6 +5,8 @@ import com.abaduna.gestorClientes.repository.ClienteRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class ClienteServiceImp implements ClienteServices{
     @Autowired
@@ -22,5 +24,14 @@ public class ClienteServiceImp implements ClienteServices{
     @Override
     public void save(Cliente clinete) {
         repository.save(clinete);
+    }
+
+
+
+
+    @Override
+    public void update(Cliente cliente, Long id) {
+        cliente.setId(id);
+        repository.save(cliente);
     }
 }
